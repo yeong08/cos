@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>COS</title>
+    <!-- 파비콘 -->
+    <link href="img/favicon.png" type="image/icon" rel="shortcut icon">
+    <!-- 부트스트랩 css cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- swiper css cdn -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <!-- 어썸 아이콘 연결 -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- 외부 css -->
+    <link href="css/main_insta.css" type="text/css" rel="stylesheet">
+    <link href="css/media_main.css" type="text/css" rel="stylesheet">
+    <!-- <link href="css/main.css" type="text/css" rel="stylesheet"> -->
+    <!-- <link href="css/main_line_ver.css" type="text/css" rel="stylesheet"> -->
+    <!-- 제이쿼리 라이브러리 연결 -->
+    <script src="js/jquery-3.6.0.js"></script>
+    <!-- 부트스트랩 js cdn-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- swiper js cdn -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- 외부 js -->
+    <script src="js/main.js"></script>
+    <!-- goggle 지도 -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwlNqAEil52XRPHmSVb4Luk18qQG9GqcM&sensor=false&language=ko"></script>
+    
+    <script>
+        function initialize() {
+       var myLatlng = new google.maps.LatLng(37.544118, 127.000666); // 좌표값
+        var mapOptions = {
+              zoom: 14, // 지도 확대레벨 조정
+              center: myLatlng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        var marker = new google.maps.Marker({
+       position: myLatlng,
+       map: map,
+       title: "COS" // 마커에 마우스를 올렸을때 간략하게 표기될 설명글
+       });
+        }
+       window.onload = initialize;
+       </script>
+
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="header_wrap">
+                <div class="logo">
+                    <a href="index.html"></a>
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">Sale</a>
+                            <ul class="sub">
+                                <li><a href="#">Women's sale</a></li>
+                                <li><a href="#">Men's sale</a></li>
+                                <li><a href="#">Women's<br>Last Pieces</a></li>
+                                <li><a href="#">Men's<br>Last Pieces</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">New Arrivals</a>
+                            <ul class="sub">
+                                <li><a href="#">Women:New Arrivals</a></li>
+                                <li><a href="#">Women:New Accessories</a></li>
+                                <li><a href="#">Men:New Arrivals</a></li>
+                                <li><a href="#">Men:New Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Women</a>
+                            <ul class="sub">
+                                <li><a href="#">니트웨어</a></li>
+                                <li><a href="#">캐시미어</a></li>
+                                <li><a href="#">아우터웨어</a></li>
+                                <li><a href="#">드레스</a></li>
+                                <li><a href="#">진</a></li>
+                                <li><a href="#">탑</a></li>
+                                <li><a href="#">스커트</a></li>
+                                <li><a href="#">라운지웨어</a></li>
+                                <li><a href="#">슈즈</a></li>
+                                <li><a href="#">가방&지갑</a></li>
+                                <li><a href="#">모자&머플러</a></li>
+                                <li><a href="#">주얼리</a></li>
+                                <li><a href="#">기타</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Men</a>
+                            <ul class="sub">
+                                <li><a href="#">니트웨어</a></li>
+                                <li><a href="#">캐시미어</a></li>
+                                <li><a href="#">아우터웨어</a></li>
+                                <li><a href="#">진</a></li>
+                                <li><a href="#">탑</a></li>
+                                <li><a href="#">스커트</a></li>
+                                <li><a href="#">라운지웨어</a></li>
+                                <li><a href="#">슈즈</a></li>
+                                <li><a href="#">가방&지갑</a></li>
+                                <li><a href="#">모자&머플러</a></li>
+                                <li><a href="#">주얼리</a></li>
+                                <li><a href="#">기타</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Magazine</a>
+                            <ul class="sub">
+                                <li><a href="#">Lastest</a></li>
+                                <li><a href="#">Stories</a></li>
+                                <li><a href="#">People</a></li>
+                                <li><a href="#">Places</a></li>
+                                <li><a href="#">Things</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Sustainability</a>
+                            <ul class="sub">
+                                <li><a href="#">Our Mission</a></li>
+                                <li><a href="#">Product Care</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="menu">
+                    <a href="#"></a>
+                </div>
+                <!-- 서브메뉴 배경 -->
+                <div class="sub_bg"></div>
+            </div>
+        </header>
+        <section class="s1">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" id="main1">
+                      <!-- 글이 2줄이상일때 이렇게 한번 묶어주면 애니메이션 한번에 주기 편하고css하기도 좋음 -->
+                    <div class="main_txt">
+                        <h1>NEW MOOD</h1>
+                        <p>새로운 시즌, 새로운 컬렉션</p>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" id="main2">
+                    <div class="main_txt">
+                        <h1>S A L E</h1>
+                        <p>온라인 스토어 및 전국 매장</p>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" id="main3">
+                    <div class="main_txt">
+                        <h1>Better looks beyond</h1>
+                        <p>더 지속 가능한 미래를 향해 나아가는</p>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" id="main4">
+                    <div class="main_txt">
+                        <h1>Fresh energy</h1>
+                        <p>코스만의 독보적인 무드</p>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" id="main5">
+                    <div class="main_txt">
+                        <h1>COS Icons</h1>
+                        <p>타임리스 디자인의 대표 브랜드</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+        </section>
+        <section class="s2">
+            <div class="center container">
+                <div class="row">
+                    <!-- 부트스트랩 연결한거 ! https://www.w3schools.com/bootstrap5/bootstrap_grid_basic.php -->
+                    <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-6 company_txt">
+                        <h1>Cos Scense</h1>
+                        <p>모던하고 기능적인 디자인의 브랜드. 시즌에 구애받지 않는<br>타임리스 아이템을 COS 공식 온라인 스토어에서 만나보세요.</p>
+                    </div>
+                    <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-6 company_img">
+                        <iframe width="100%" height="415" src="https://www.youtube.com/embed/HZYUqZ6kjZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="sub_bg2"></div>
+            </div>
+        </section>
+        <section class="s3">
+            <div class="center">
+                <h1 class="fade_animation">New Arrivals</h1>
+                <p class="fade_animation">새로운 분위기의 신상품</p>
+                <div class="product up_animation">
+                    <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide p1">
+                            <div class="p_top">
+                                <h3>Men:New Arrivals</h3>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="p_bottom">
+                                <div class="p_left">
+                                    <h3>시즌에 구애받지 않는 모던한 스타일<br>남성 신상품 컬렉션을 만나보세요.</h3>
+                                </div>
+                                <div class="p_right">
+                                    
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide p2">
+                            <div class="p_top">
+                                <h3>Women:New Arrivals</h3>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="p_bottom">
+                                <div class="p_left">
+                                    <h3>시즌에 구애받지 않는 모던한 스타일<br>여성 신상품 컬렉션을 만나보세요.</h3>
+                                </div>
+                                <div class="p_right">
+                                    
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide p3">
+                            <div class="p_top">
+                                <h3>Shose:New Arrivals</h3>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="p_bottom">
+                                <div class="p_left">
+                                    <h3>실용성에 중점을 둔 모던한 디자인<br>다양한 스타일에 어울리는 제품들을 만나보세요.</h3>
+                                </div>
+                                <div class="p_right">
+                                    
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide p4">
+                            <div class="p_top">
+                                <h3>Accessoris:New Arrivals</h3>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="p_bottom">
+                                <div class="p_left">
+                                    <h3>COS의 새로운 악세사리 컬렉션<br>모던한 모자, 벨트 등으로 스타일을 완성해보세요.</h3>
+                                </div>
+                                <div class="p_right">
+                                    
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide p5">
+                            <div class="p_top">
+                                <h3>Bag:New Arrivals</h3>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="p_bottom">
+                                <div class="p_left">
+                                    <h3>COS의 새로운 가방 컬렉션<br>다양한 디자인의 가방으로 스타일을 완성해보세요.</h3>
+                                </div>
+                                <div class="p_right">
+                                    
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- 원래는 swiper-scriollbar -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="s4">
+            <div class="center container">
+                <div class="s4_title fade_animation">
+                    <h1>MAGAZINE</h1>
+                    <p>COS에서 발행하는 사람들의 이야기</p>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-6 s4_left">
+                        <div class="s4_img s4_ani1">
+                            <!-- <img src="img/s4_img1.png" alt="이미지"> -->
+                        </div>
+                        <div class="s4_des s4_ani2">
+                            <p>Ronan</p>
+                            <h1>지속가능성의 미래</h1>
+                            <span>로난은 항상 이야기 합니다.<br>"환경에 대한 부담을 줄이면서<br>모든 사람들에게 패션이 접근 가능하게<br>만드는 방법이 있다고 생각해요."</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-6 s4_right">
+                        <div class="s4_img s4_ani3">
+                            <!-- <img src="img/s4_img2.png" alt="이미지"> -->
+                        </div>
+                        <div class="s4_des s4_ani4">
+                            <p>Mckenzie</p>
+                            <h1>잠시 쉬어가는 시간</h1>
+                            <span>포토그래퍼 맥켄지의 이야기와 함께<br>편안한 마음으로 2022년을 준비하세요.<br>아름다운 멕켄지의 예술 공간에서<br>인터뷰를 진행했습니다.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="s5">
+            <div class="center">
+                <h1 class="fade_animation">Best</h1>
+                <p class="fade_animation">코스에서 사랑받는 아이템</p>
+                <div class="acc up_animation">
+                    <div class="acc_item acc1">
+                        <span>TOPS</span>
+                        <h1>상의</h1>
+                        <p>모든 아웃핏에 잘 어울리는<br>탑 아이템들을 소개합니다.</p>
+                        <!-- 아코디언 안에 스와이퍼 슬라이드 작성 -->
+                    </div>
+                    <div class="acc_item acc2">
+                        <span>BOTTOMS</span>
+                        <h1>하의</h1>
+                        <p>자연스러운 데일리 룩으로 입기 좋은<br>심플한 실루엣의 COS의 하의 컬렉션을 만나보세요.</p>
+                        <!-- 아코디언 안에 스와이퍼 슬라이드 작성 -->
+                    </div>
+                    <div class="acc_item acc3 active">
+                        <span>JEWELYS</span>
+                        <h1>주얼리</h1>
+                        <p>감각적인 디자인과 텍스처의 조화가 돋보이는<br>다양한 소재의 주얼리 제품을 소개합니다</p>
+                        <!-- 아코디언 안에 스와이퍼 슬라이드 작성 -->
+                    </div>
+                    <div class="acc_item acc4">
+                        <span>SHOES</span>
+                        <h1>신발</h1>
+                        <p>다양한 코디와 독창적인 색감의<br>컨템포러리한 COS의 슈즈 컬렉션을 만나보세요.</p>
+                        <!-- 아코디언 안에 스와이퍼 슬라이드 작성 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="s6">
+            <div class="center">
+                <div class="list">
+                    <ul>
+                        <li class="up_animation insta_box"><a href="#">
+                            <div class="insta_des1">
+                                <div class="insta_img"></div>   
+                            </div>
+                            <div class="insta_des2">
+                                <h1>COS by you</h1>
+                                <p>www.instagram.com<br>/cosstores/</p>
+                            </div>
+                        </a></li>
+                        <li class="up_animation"><a href="#">
+                            <img src="img/insta1.png" alt="인스타1">
+                        </a></li>
+                        <li class="up_animation"><a href="#">
+                            <img src="img/insta2.png" alt="인스타2">
+                        </a></li>
+                        <li class="up_animation"><a href="#">
+                            <img src="img/insta3.png" alt="인스타3">
+                        </a></li>
+                        <li class="up_animation up_delay"><a href="#">
+                            <img src="img/insta4.png" alt="인스타4">
+                        </a></li>
+                        <li class="up_animation up_delay"><a href="#">
+                            <img src="img/insta5.png" alt="인스타5">
+                        </a></li>
+                        <li class="up_animation up_delay"><a href="#">
+                            <img src="img/insta6.png" alt="인스타6">
+                        </a></li>
+                        <li class="up_animation up_delay"><a href="#">
+                            <img src="img/insta7.png" alt="인스타7">
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="s7">
+            <!-- <div id="map_canvas" style="width:100%; height:100%;">원래 이거였는데 위치가 잡혀있어서
+                모바일css이상해져서 뒤에 높이랑 너비없앰, 그리고 pc버전에가서 이거 써줬음 -->
+            <div id="map_canvas" style="width:100%; height:100%;"></div>
+            <div class="s7_addr up_animation">
+                <div class="s7_img"></div>
+                <div class="s7_info">
+                    <h1>COS</h1>
+                    <address>
+                    <span>영등포 타임스퀘어점<br>
+                    서울특별시 영등포구 영중로 15<br>
+                    영등포 타임스퀘어 2층</span>
+                    </address>
+                    <div class="s7_des delivery">
+                        <div class="s7_left tel_icon">
+                            <img src="img/call_icon.png" alt="전화">
+                        </div>
+                        <div class="s7_right tel_number">
+                            02-2638-2670<br>
+                            월 - 일 10:30-22:00             
+                        </div>
+                    </div>
+                    <div class="s7_des time">
+                        <div class="s7_left time_icon">
+                            <img src="img/cloth_icon.png" alt="옷">
+                        </div>
+                        <div class="s7_right time_number">
+                            MEN<br>
+                            LADIES
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="center">
+                <div class="footer_logo">
+                    <h1>COS</h1>
+                </div>
+                <div class="footer_txt">
+                    <p>주식회사 현대백화점 대표이사 : 김형종 외 2인 서울시 강남구 테헤란로98길 12 /<br>
+                        사업자등록번호 : 211-87-21455 / 통신판매업신고 :2010-서울강남-01882 /<br>
+                        개인정보관리 및 청소년보호 책임자 : 회원운영관리담당 장근혁 / 홈페이지,앱 문의 : customerservice.kr@cosstores.com /<br>
+                        고객센터: 1800-2765 / 호스팅 서비스: (주)현대백화점 /<br>
+                        고객님의 안전거래를 위해 현금결제시 우리은행과 채무지급보증계약을 체결하여 안전거래를 보장하고 있습니다.</p>
+                    <p class="en">english COS</p>
+                    <p class="cr">CopyrightⓒHundai Department Store. All rights reserved.</p>
+                </div>
+                <div class="footer_site">
+                    <div class="sns">
+                        <ul>
+                            <li><a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a></li>
+                            <li><a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="family">
+                        <a href="#" class="fa_btn">Family Site</a>
+                        <a href="#">H & M</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- top 버튼 -->
+        <div class="top">TOP</div>
+    </div>
+    <!-- 사이트맵 -->
+    <div class="sitemap">
+        <div class="site_logo">
+            <img src="img/logo.png" alt="logo">
+        </div>
+        <div class="site_close">
+            <a href="#"><img src="img/plus.png" alt="닫기버튼"></a>
+        </div>
+        <nav class="site_nav">
+            <ul>
+                <li>
+                    <a href="#">Sale</a>
+                    <ul class="sub">
+                        <li><a href="#">Women's sale</a></li>
+                        <li><a href="#">Men's sale</a></li>
+                        <li><a href="#">Women's<br>Last Pieces</a></li>
+                        <li><a href="#">Men's<br>Last Pieces</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">New Arrivals</a>
+                    <ul class="sub">
+                        <li><a href="#">Women:New Arrivals</a></li>
+                        <li><a href="#">Women:New Accessories</a></li>
+                        <li><a href="#">Men:New Arrivals</a></li>
+                        <li><a href="#">Men:New Accessories</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Women</a>
+                    <ul class="sub">
+                        <li><a href="#">니트웨어</a></li>
+                        <li><a href="#">캐시미어</a></li>
+                        <li><a href="#">아우터웨어</a></li>
+                        <li><a href="#">드레스</a></li>
+                        <li><a href="#">진</a></li>
+                        <li><a href="#">탑</a></li>
+                        <li><a href="#">스커트</a></li>
+                        <li><a href="#">라운지웨어</a></li>
+                        <li><a href="#">슈즈</a></li>
+                        <li><a href="#">가방&지갑</a></li>
+                        <li><a href="#">모자&머플러</a></li>
+                        <li><a href="#">주얼리</a></li>
+                        <li><a href="#">기타</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Men</a>
+                    <ul class="sub">
+                        <li><a href="#">니트웨어</a></li>
+                        <li><a href="#">캐시미어</a></li>
+                        <li><a href="#">아우터웨어</a></li>
+                        <li><a href="#">진</a></li>
+                        <li><a href="#">탑</a></li>
+                        <li><a href="#">스커트</a></li>
+                        <li><a href="#">라운지웨어</a></li>
+                        <li><a href="#">슈즈</a></li>
+                        <li><a href="#">가방&지갑</a></li>
+                        <li><a href="#">모자&머플러</a></li>
+                        <li><a href="#">주얼리</a></li>
+                        <li><a href="#">기타</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Magazine</a>
+                    <ul class="sub">
+                        <li><a href="#">Lastest</a></li>
+                        <li><a href="#">Stories</a></li>
+                        <li><a href="#">People</a></li>
+                        <li><a href="#">Places</a></li>
+                        <li><a href="#">Things</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Sustainability</a>
+                    <ul class="sub">
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Product Care</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="site_sns">
+            <ul>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

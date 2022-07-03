@@ -1,0 +1,1120 @@
+* {margin: 0; padding: 0;}
+/* 밑에 height:100%을 써주니까 서브메뉴가 밑으로 떨어져버려서 (부트스트랩에서 ul에 대한 설정이 되어있어서 그럼) 그래서 이걸 써준 것!! */
+ul {margin:0; padding: 0; height:100%;} /*height:100은 메뉴랑 로고 등에 마우스 올리면 손가락도 나오고 자리도 잘 잡도록 넣어준 것임*/
+li {list-style: none;}
+a {text-decoration:none; display: block; color: #212121; height: 100%;}
+/* a태그의 밑줄 없앰 (부트스트랩 안에 요런게 있어서 없애주세요 추가적으로 써준것임)*/
+a:hover , a:focus {text-decoration: none;}
+img {width: 100%;}
+div, header,section,footer {
+    width:100%;
+    float: left;
+    box-sizing: border-box;
+}
+
+/* 검은고딕 */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+/* 노토산스 */
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+}
+
+html, body {font-family: 'Noto Sans KR', sans-serif; overflow-x:hidden;}
+/* pc버전 */
+.wrap {
+    width: 100%;
+}
+/* 서브메뉴 높이 조정하기 */
+element.style {
+    height: 30vw;
+}
+header {
+    /* 위에 이미 다 썼으니까 widt같은거 안쓴거임 */
+    /* 높이는 px을 써야 픽셀이 예쁘게 나옴 */
+    height: 100px;
+    /* 선생님은 background-color: transparent하심; */
+    /* 그라데이션 내비게이션 색 넣어줌 */
+    background: rgb(111,111,111); /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  rgba(111,111,111,1) 8%, rgba(111,111,111,1) 8%, rgba(252,159,24,1) 50%, rgba(252,159,24,1) 50%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(111,111,111,1) 8%,rgba(111,111,111,1) 8%,rgba(252,159,24,1) 50%,rgba(252,159,24,1) 50%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(111,111,111,1) 8%,rgba(111,111,111,1) 8%,rgba(252,159,24,1) 50%,rgba(252,159,24,1) 50%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6f6f6f', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    position:fixed;
+    z-index: 100;
+    transition: all 0.5s;
+}
+header .header_wrap {
+    padding: 0 2vw;
+    width: 100%;
+    height: 100%;
+    /* 원래 header에 넣었는데 header_wrap가 생겨서
+    직속 부모한테 요 3가지를 넣어줘야해서 여기로 옮김 */
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-between;
+    background-color:transparent;
+    transition: all 0.5s;
+}
+header .logo {
+    margin-top: 1.5vw;
+    width: 5.5vw;
+    height: 2vw;
+    background-image: url(../img/logo2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* 내비게이션 */
+header nav {
+    position:relative;
+    z-index:110;
+    margin-top: 2vw;
+    width: 45vw;
+    left: -25%;
+}
+header nav > ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+header nav > ul > li {
+    /* 가운데 정렬 하는거 서브메뉴가 길어서 가운데 정렬이 안되어서 이거 넣음 */
+    position: relative;
+}
+header nav > ul > li > a {
+    color: #fff;
+    font-size: 0.9vw;
+    padding-bottom: 2.6vw; /* 주메뉴랑 밑줄 간격 */
+    /* 이게 확실히 길어야 주메뉴에서 서브메뉴로 내려갔을때 서브가 안사라짐 */
+    position: relative;
+    text-align: center;
+}
+header nav  ul  li  a:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #ffd7a3;
+    transition: all 0.5s;
+}
+/* 서브메뉴 */
+header nav .sub {
+    display: none;
+    padding: 1.3vw 0;
+    position: absolute;
+    /* 가운데 정렬 하는거 서브메뉴가 길어서 가운데 정렬이 안되어서 이거 넣음 */
+    left: 50%;
+    transform: translate(-50%);
+}
+header nav .sub li a {
+    color: #666;
+    /* 가운데 정렬 하는거 서브메뉴가 길어서 가운데 정렬이 안되어서 폰트 사이즈 수정함 */
+    font-size: 0.7vw;
+    text-align: center;
+    position: relative;
+    padding-top: 1vw;
+    /* 가운데 정렬 하는거 서브메뉴가 길어서 가운데 정렬이 안되어서 이거 넣음 */
+    white-space: nowrap;
+}
+header nav .sub li a:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    background-color: #666;
+    transition: all 0.5s;
+}
+/* 메뉴에 마우스 오버 했을때 글자색 변경과 밑줄 애니메이션 */
+header nav > ul > li:hover > a {
+    color: #ffd7a3;
+}
+header nav ul li a:hover {
+    text-decoration: none;
+}
+/* 주메뉴 밑줄 애니메이션 */
+header nav > ul > li:hover > a:after {
+    width: 100%;
+    left:0;
+}
+/* 서브메뉴 밑줄 애니메이션 */
+header nav .sub li a:hover:after {
+    width: 100%;
+    left: 0;
+}
+/* 서브메뉴 배경 */
+header .sub_bg {
+    display: none;
+    z-index: 101;
+    width: 100%;
+    height: 30vw;
+    position:absolute;
+    top: 100px;
+    left:0;
+    /* border-top:1px solid #ddd; */
+    background-color: white;
+}
+/* 메뉴버튼 */
+header .menu {
+    width: 1.8vw;
+    height: 1.8vw;
+    margin-top: 1.5vw;
+    background-image: url(../img/hamburger_menu.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* 헤더:active 헤더에 마우스 올리면 로고 색이 변함 */
+header.active {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+header .header_wrap.active {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+header .header_wrap.active .logo {
+    background-image: url(../img/blacklogo.png);
+}
+header .header_wrap.active nav > ul > li > a {
+    color: #111;
+}
+header .header_wrap.active .menu {
+    background-image:url(../img/hamburger_black.png)
+}
+
+/* 모바일용 메뉴 안보이게 하기 */
+header .menu {
+    display:none;
+}
+/* 섹션 본문 */
+section {
+    height: 100vh;
+}
+section.s1 .swiper {
+    width: 100%;
+    height: 100%;
+}
+section.s1 .swiper .swiper-slide {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section.s1 .swiper #main1 {
+    background-image: url(../img/main1.png);
+}
+section.s1 .swiper #main2 {
+    background-image: url(../img/main2.png);
+}
+section.s1 .swiper #main3 {
+    background-image: url(../img/main3.png);
+}
+section.s1 .swiper #main4 {
+    background-image: url(../img/main4.png);
+}
+section.s1 .swiper #main5 {
+    background-image: url(../img/main5.png);
+}
+section.s1 .swiper .swiper-slide .main_txt {
+    /* 밑에 올 글자 길이가 다 다르니까 이걸 넣고 가운데 정렬하는것이 편함 */
+    position: absolute;
+    left: 50%;
+    top:40%; /*원래 50인데 살짝 움직이는 효과 주려고 40넣은 것*/
+    transform: translateX(-50%) translateY(-50%);
+    /* opacity: 0; */
+    transition: all 0.5s;
+    line-height: 3vw;
+    
+    /* 원래 여기까지가 가운데 정렬인데 top이랑 뒤에 더 쓴거 */
+
+    /* 가운데 정렬공식은 원래
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translateX(-50%); 이거인데 
+
+    완전 화면 정가운데 (위아래도 포함해서!) 하려면
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);이거 (나란히 써야 두개가 다 적용되어서 나란히 써준것.)
+    원래는 margin: 0 auto; 하면되긴하는데 안에 들어가는 멘트 길이도 다 각각 다르니까 이걸해주는 거임*/
+}
+section.s1 .swiper .swiper-slide-active .main_txt {
+    opacity: 1;
+    top: 50%;
+}
+section.s1 .swiper .swiper-slide .main_txt h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 5vw;
+    font-family: 'Black Han Sans', sans-serif;
+}
+section.s1 .swiper .swiper-slide .main_txt p {
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 1vw;
+}
+
+section.s1 .swiper .swiper-button-next,
+section.s1 .swiper .swiper-button-prev {
+    /* 기존 거 사용하려면 색깔만 바꾸면 됨 */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 1.3vw;
+    height: 2.5vw;
+}
+section.s1 .swiper .swiper-button-next:after,
+section.s1 .swiper .swiper-button-prev:after {
+    text-indent: -9999px;   /* 글자 사라짐 */
+}
+/* 기본 제공 슬라이드 버튼 말고 내가 만든거 넣고 싶을때! */
+section.s1 .swiper .swiper-button-next {
+    background-image: url(../img/slide_next.png);
+    right: 2vw;
+}
+section.s1 .swiper .swiper-button-prev{
+    background-image: url(../img/slide_prv.png);
+    left: 2vw;
+}
+section.s1 .swiper-horizontal >
+.swiper-pagination-bullets {
+    bottom: 17vw;
+}
+section.s1 .swiper-horizontal >
+.swiper-pagination-bullets
+.swiper-pagination-bullet {
+    opacity: 0.3;
+    background: white;
+    width: 6px;
+    height: 6px;
+    margin: 0 12px;
+}
+section.s1 .swiper-horizontal >
+.swiper-pagination-bullets
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: rgb(255, 255, 255);
+}
+/* swiper 슬라이드 play-stop 버튼 */
+section.s1 .swiper .swiper-play-stop {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-image: url(../img/stop.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: -2px 15px;
+}
+.center {
+    width:1700px;
+    margin: 0 auto;
+    float:none;
+}
+
+/* s22222 */
+section.s2 {
+    background-image: url(../img/bg1.png);
+    background-position:center;
+    background-size:cover;
+    background-repeat: no-repeat;
+
+    /* 자식 영역 가운데 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.s2 .company_txt {
+    padding: 8vw 7vw;
+    /*ㄱ 전체 ani*/
+    left: -5vw;
+    opacity: 0;
+    transition: all 1s; /*실행시간*/
+    transition-delay: 0.1s; /*대기시간. 0.1초 기다렸다가 실행해!*/
+}
+section.s2 .company_txt h1 {
+    color: rgb(89, 89, 89);
+    font-size: 3vw;
+    margin-bottom: 1vw;
+    font-weight: bold;
+}
+section.s2 .company_txt p {
+    color: black;
+    font-size: 1vw;
+    line-height: 2vw;
+    margin-top: 1vw;
+    float: left;
+    text-align:left;
+}
+section.s2 .company_img {
+    /*ㄴ 전체 ani*/
+    margin-top: 2.5vw;
+    opacity: 0;
+    transition: all 1s;
+    transition-delay: 0.1s;
+}
+/* ㄱ 전체적인 애니메이션!! "왼쪽에서 나타나는 애니메이션" */
+section.s2 .company_txt.active {
+    opacity: 1;
+    left:0;
+}
+/*ㄴ 전체 ani "자기자리에서 나타나는 이미지 애니메이션"*/
+section.s2 .company_img.active {
+    opacity: 1;
+}
+/* s333333333 */
+section.s3 {
+    background-image: url(../img/bg2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* 제목 */
+section.s3 h1 {
+    color: rgb(89, 89, 89);
+    font-size: 3vw;
+    font-weight: bold;
+    margin-bottom: 1vw;
+    text-align: center;
+    margin-top:4vw;
+}
+section.s3 p {
+    color:#111;
+    font-size: 1vw;
+    line-height: 2vw;
+    margin-top: 1vw;
+    margin-bottom: 3.5vw;
+    text-align: center;
+}
+section.s3 .product {
+    /* margin-top: 15vh; */
+
+    /* margin-top: -5vw;
+    opacity: 0;
+    transition: all 1s; */
+}
+section.s3 .swiper .swiper-slide {
+    height: 27vw;
+    padding: 1vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    cursor: pointer;
+}
+/* 상품 슬라이드의 홀수번째 슬라이드에 위쪽 여백 설정 (사진 지그재그로 배열하려고 이거 넣음)
+(even) 이거 쓰면 짝수 / (odd) 이거 쓰면 홀수*/
+section.s3 .swiper .swiper-slide:nth-child(odd) {
+    margin-top: 4vw;
+}
+section.s3 .swiper .p1 {
+    background-image: url(../img/s3_img1.png);
+}
+section.s3 .swiper .p2 {
+    background-image: url(../img/s3_img2.png);
+}
+section.s3 .swiper .p3 {
+    background-image: url(../img/s3_img3.png);
+}
+section.s3 .swiper .p4 {
+    background-image: url(../img/s3_img4.png);
+}
+section.s3 .swiper .p5 {
+    background-image: url(../img/s3_img5.png);
+}
+/* 위에 밑줄 */
+section.s3 .swiper .swiper-slide .p_top {
+    border-bottom: 1px solid #fff;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 19vw;
+}
+/* +아이콘 */
+section.s3 .swiper .swiper-slide .p_top i {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: #fff;
+    color: #ccc;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 300;
+    margin-top: 5px;
+}
+section.s3 .swiper .swiper-slide .p_bottom {
+    border-top: 1px solid #fff;
+    display:flex;
+    flex-flow: row nowrap;
+    /* padding: 0.7vw 0 ; */
+}
+/* 위에 글씨 */
+section.s3 .swiper .swiper-slide h3 {
+    font-size: 1vw;
+    padding-bottom: 0vw;
+    white-space: nowrap;
+}
+/* 밑에글씨 */
+section.s3 .swiper .swiper-slide .p_bottom h3 {
+    font-size:0.7vw;
+    padding-bottom: 0.2vw;
+    line-height: 22px;
+}
+section.s3 .swiper .swiper-pagination {
+    display: none;
+}
+/* 섹션4444444444444 */
+
+section.s4 {
+    background-image: url(../img/bg3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section.s4 .center {
+    position: relative;
+}
+section.s4 .center .s4_title {
+    padding-top: 20px;
+    position: absolute;
+    top: 1vw;
+    right:0;
+    text-align: right;
+
+    left: -5vw;
+    opacity: 0;
+    transition: all 1s; /*실행시간*/
+    transition-delay: 0.1s; /*대기시간. 0.1초 기다렸다가 실행해!*/
+
+}
+section.s4 .center .s4_title > h1 {
+    color: rgb(71, 53, 53);
+    font-size: 3vw;
+    font-weight: bold;
+    /* 선생님이 쓰신거 */
+    /* position: absolute;
+    right: 0;
+    top: 1vw; */
+
+}
+section.s4 .center .s4_title > p {
+    color:#111;
+    font-size: 1vw;
+    float:right;
+    /* margin-top: 1vw;
+    text-align: center; */
+}
+/* 전체 ani*/
+section.s4 .s4_title.active {
+    opacity: 1;
+    left: 0;
+}
+
+/*ㄷ 전체 ani "s4영역의 객체 애니메이션"*/
+section.s4 .s4_ani1 {
+    margin-left: -5vw;
+    opacity: 0;
+    transition: all 1s;
+}
+section.s4 .s4_ani2 {
+    margin-right: -5vw;
+    opacity: 0;
+    transition: all 1s;
+    transition-delay: 0.1s;
+}
+section.s4 .s4_ani3 {
+    margin-right: -5vw;
+    opacity: 0;
+    transition: all 1s;
+}
+section.s4 .s4_ani4 {
+    margin-left: -5vw;
+    opacity: 0;
+    transition: all 1s;
+    transition-delay: 0.1s;
+}
+/*ㄷ 전체 ani*/
+section.s4 .s4_ani1.active {
+    margin-left: 0;
+    opacity: 1;
+}
+section.s4 .s4_ani2.active {
+    margin-right:0;
+    opacity: 1;
+}
+section.s4 .s4_ani3.active {
+    margin-right: 0;
+    opacity: 1;
+}
+section.s4 .s4_ani4.active {
+    margin-left: 0;
+    opacity: 1;
+}
+section.s4 .center .row {
+    padding-top: 200px;
+    margin:0;
+}
+/* 왼쪽 이미지 구역 */
+section.s4 .center .row .col-sm-12 {
+    position: relative;
+    height: 35vw;
+    padding:0;
+}
+section.s4 .center .row .col-sm-12 .s4_img {
+    width: 30vw;
+    height: 35vw;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*설명 네모칸 */
+section.s4 .center .row .col-sm-12 .s4_des {
+    /* border: 1px solid #ddd; */
+    width: 48%;
+    background-color: #fff;
+    padding: 2.1vw;
+    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+}
+/* 왼쪽 */
+section.s4 .center .row .s4_left .s4_des {
+    position: absolute;
+    padding: 3.5vw 2vw 3.5vw 2vw;
+    bottom:-4vw;
+    right: 0vw;
+}
+section.s4 .center .row .s4_left .s4_img {
+    margin-bottom: 144vw;
+    background-image: url(../img/s4_img1.png);
+
+}
+/* 오른쪽 */
+section.s4 .center .row .s4_right .s4_img{
+    margin-top: 7vw;
+    float: right;
+    background-image: url(../img/s4_img2.png);
+}
+section.s4 .center .row .s4_right .s4_des {
+    position: absolute;
+    padding: 3.5vw 2vw 3.5vw 2vw;
+    bottom: 14vw;
+    left: 4vw;
+    text-align: right;
+}
+section.s4 .center .row .col-6 .s4_des h1 {
+    font-size: 1.6vw;
+    margin-bottom: 1.5vw;
+}
+section.s4 .center .row .col-6 .s4_des span {
+    font-size: 0.95vw;
+    line-height: 1.8vw;
+}
+section.s4 .center .row .col-6 .s4_des.s4_ani2 > p {
+    color: #333;
+    font-size: 1.5vw;
+    width:5.3vw;
+}
+section.s4 .center .row .col-6 .s4_des.s4_ani4 > p {
+    color: #333;
+    font-size: 1.5vw;
+    width:27.3vw;
+}
+
+
+
+
+/* section.s5 */
+section.s5 {
+    height: 950px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+section.s5 > .center {
+
+}
+section.s5 .center > h1 {
+    color: rgb(89, 89, 89);
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: center;
+}
+section.s5 .center > p {
+    margin-bottom: 2vw;
+    color:#111;
+    font-size: 1vw;
+    line-height: 2vw;
+    text-align: center;
+}
+section.s5 .center .acc {
+    width: 100%;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+section.s5 .center .acc .acc_item {
+    width: 15.9%;
+    height: 33vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding-top: 15vw;
+    white-space: nowrap;
+    /* text-shadow: 0 0 5px #000; */
+    transition: all 0.5s;
+    cursor: pointer;
+}
+section.s5 .center .acc .acc_item.active {
+    width: 50%;
+    padding: 12vw;
+}
+section.s5 .center .acc .acc1 {
+    background-image: url(../img/best1.png);
+}
+section.s5 .center .acc .acc2 {
+    background-image: url(../img/best2-1.png);
+}
+section.s5 .center .acc .acc3 {
+    background-image: url(../img/best3-1.png);
+}
+section.s5 .center .acc .acc4 {
+    background-image: url(../img/best4.png);
+}
+section.s5 .center .acc .acc_item span {
+    font-size: 1vw;
+}
+section.s5 .center .acc .acc_item h1 {
+    font-size: 1vw;
+    margin-bottom: 1vw;
+}
+section.s5 .center .acc .acc_item.active h1 {
+    font-size: 2vw;
+}
+section.s5 .center .acc .acc_item p {
+    display:none;
+}
+section.s5 .center .acc .acc_item.active p {
+    display:block;
+    font-size: 0.95vw;
+}
+/* s6 */
+section.s6 {
+    height: 950px;
+    background-image: url(../img/bg4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section.s6 .center .list {
+    margin: 55px 0 ;
+}
+section.s6 .center .list ul {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+section.s6 .center .list ul li {
+    width: 24%;
+    margin-bottom: 0.9vw;
+}
+/* insta 로고 부분 */
+
+/* 인스타 로고 들어간 박스만 패딩을 넣어줘 */
+section.s6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+section.s6 .center {
+
+}
+section.s6 .center .list ul li:first-child {
+    padding-top:2.8vw;
+}
+section.s6 .center .list ul li.insta_box .insta_des1 {
+    height: 7vw;
+}
+section.s6 .center .list ul li .insta_box > a {
+    height: 100%;
+}
+section.s6 .center .list ul li .insta_img {
+    display:block;
+    width: 6vw;
+    height: 6vw;
+    background-image: url(../img/insta_logo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+section.s6 .center .list ul li .insta_des2 {
+    
+}
+section.s6 .center .list ul li .insta_des2 > h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 2vw;
+    margin: 1vw 0 1vw 0;
+}
+section.s6 .center .list ul li .insta_des2 > p {
+    white-space: nowrap;
+    font-size: 1vw;
+}
+section.s6 .center .list ul li a > div {
+    width:100%;
+}
+section.s6 .center .list ul li a div div {
+    width:3vw;
+    margin:0 auto;
+    margin-bottom: 2vw;
+    float:none;
+}
+/* section.s6 .center .ul > li.logo > img{
+    width: 1px;
+}  */
+section.s6 .center .list > ul li a > h1, p {
+    text-align: center;
+    color: #fff;
+}
+
+
+/* section.s7 */
+
+section.s7 {
+    position: relative;
+}
+section.s7 #map_canvas {
+    width: 100%;
+    height: 100%;
+}
+section.s7 .s7_addr {
+    position: absolute;
+    width: 45%;
+    height:32vw;
+    right: 5.5vw;
+    top: 8vw;
+    background-color: #717171;
+    display: flex;
+    flex-flow:row nowrap;
+}
+section.s7 .s7_addr .s7_img {
+    width: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/shop.jpg);
+}
+section.s7 .s7_addr .s7_info {
+    padding: 2vw 3vw 1vw 3vw;
+    background-color:#ff9800;
+}
+section.s7 .s7_addr .s7_info span {
+    color:#ffffff;
+}
+section.s7 .s7_addr .s7_info h1 {
+    color: #fff;
+    font-size: 2.5vw;
+    /* margin-bottom: 2vw; */
+}
+section.s7 .s7_Addr .s7_info address {
+    color: #fff;
+    font-size: 0.95vw;
+    line-height: 1.4vw;
+}
+section.s7 .s7_Addr .s7_info address span {
+    color: rgb(255, 255, 255);
+    font-size: 0.8vw;
+    letter-spacing:-2px;
+}
+section.s7 .s7_addr .s7_info address i {
+    font-style:normal;
+    color: #888;
+    font-size:0.8vw;
+    display:block;
+    margin-top: 1vw;
+}
+section.s7 .s7_addr .s7_info p {
+    font-size: 0.95vw;
+}
+section.s7 .s7_addr .s7_des {
+    display: flex;
+    flex-flow: row nowrap;
+    border-top: 1px solid #fff;
+    padding: 1.5vw 0;
+}
+section.s7 .s7_addr .s7_des .s7_left {
+    padding: 2.3vw 2vw;
+    padding-left: 0;
+    text-align: center;
+    width: 6vw;
+}
+section.s7 .s7_addr .s7_des .s7_right {
+    padding: 2.3vw 3vw;
+    padding-left: 0;
+    color:#fff;
+    font-weight: normal;
+    font-size: 0.95vw;
+}
+
+
+section.s7 .s7_addr .s7_info .s7_des .s7_left > img {
+    width: 2.5vw;
+    height: 2.5vw;
+}
+/*ㄹ 전체 ani "모든 section의 객체 애니메이션"*/
+.fade_animation {
+    opacity: 0;
+    transition: all 1s;
+    transition-delay: 0.1s;
+}
+.fade_animation.active {
+    opacity: 1;
+}
+.up_animation {
+    opacity: 0;
+    margin-top: 5vw;
+    transition: all 1s;
+    transition-delay: 0.5s;
+}
+.s5 .up_animation {
+    transition-delay: 0.2s;
+}
+.up_animation.active {
+    opacity: 1;
+    margin-top:0;
+}
+.up_delay {
+    transition-delay: 0.7s;
+}
+/* footer */
+footer {
+    background-color:#717171;
+    color: #ccc;
+}
+footer .center {
+    padding: 2.2vw 0;
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-between;
+}
+footer .center .footer_logo {
+    width: 30vw;
+}
+footer .center .footer_logo > h1 {
+    font-size: 3vw;
+    margin:0;
+    color: #fff;
+}
+footer .center .footer_txt {
+    width: 60vw;
+    font-size: 0.6vw;
+    line-height: 1.3vw;
+}
+footer .center .footer_txt .en {
+    color: #fff;
+}
+footer .center .footer_txt .cr {
+    color: #fff;
+}
+footer .center .footer_site {
+    width: 25vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+footer .center .footer_site .sns ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin: 0.5vw 1vw 0 0;
+}
+footer .center .footer_site .sns ul li {
+    width: 3vw;
+}
+/* sns 안에 색깔 변경 */
+footer .center .footer_site .sns ul li i {
+    color: #717171;
+    font-size: 1.2vw;
+    border-radius: 100%;
+    background-color: #ffffff;
+    padding: 0.5vw;
+}
+/* family site */
+footer .center .footer_site .family {
+    border-radius: 30px;
+    background-color: #fff;
+    height: 3vw;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+footer .center .footer_site .family.active {
+    height: 6.5vw;
+}
+footer .center .footer_site .family a {
+    color: #717171;
+    font-size: 0.8vw;
+    text-align: center;
+    white-space: nowrap;
+    padding: 1vw 1.5vw ;
+    height: auto;
+    font-weight: bold;
+}
+footer .center .footer_site .family a:first-child {
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    text-align: left;
+    background-image: url(../img/down_arrow.png);
+    background-repeat: no-repeat;
+    background-size: 13px;
+    background-position: 84% center;
+}
+footer .center .footer_site .family.active > a:first-child {
+    background-image: url(../img/up_arrow.png);
+    background-repeat: no-repeat;
+    background-size: 13px;
+    background-position: 84% center;
+}
+/* top 버튼 */
+.top {
+    width: 40px;
+    height: 40px;
+    background-color: #ffcc00;
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    bottom: 30px;
+    right: 30px;
+    position: fixed;
+    z-index: 50;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.sitemap {
+    position: absolute;
+    z-index: 200;
+    width: 100vw;
+    height: 100vh;
+    background-color: #858585;
+    color: #ddd;
+    left:0;
+    right:0;
+    top:-120vh;
+    bottom:0;
+    padding: 5vw 10vw;
+    opacity:0;
+    transition: all 0.5s;
+}
+.sitemap > div {float: none;}
+.sitemap .site_logo {
+    width: 7vw;
+    margin: 0 auto;
+}
+.sitemap .site_close {
+    position: absolute;
+    top: 4vw;
+    right: 5vw;
+    width: 2.5vw;
+}
+.sitemap .site_nav {
+    width: 70vw;
+    margin: 0 auto;
+    margin-top: 5vw;
+}
+.sitemap .site_nav > ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+} 
+.sitemap .site_nav > ul > li > a {
+    font-size: 1.2vw;
+    color: #ddd;
+    height: auto;
+    text-align: center;
+    /* padding: 1.5vw; */
+}
+.sitemap .site_nav .sub li {
+    margin: 1.2vw 0;
+    text-align: center;
+}
+.sitemap .site_nav .sub li a {
+    font-size: 0.9vw;
+    color: #ccc;
+    /* padding: 0.5vw; */
+    /* text-align: center;
+     */
+    /* 우리가 원래 a에다가 display:block을 주고 시작했는데
+    이걸 또 줘서 글자 만큼 밑줄 나오게 함 */
+    display: inline-block;
+}
+/* sitemap의 메뉴 마우스 오버 애니메이션 */
+.sitemap .site_nav ul li a {
+    position: relative;
+}
+.sitemap .site_nav ul li a:after {
+    position: absolute;
+    content:"";
+    width: 0;
+    height: 1px;
+    display: block;
+    bottom: 0;
+    left: 50%;
+    transition: all 0.5s;
+    background-color:rgb(255, 255, 255);
+}
+.sitemap .site_nav > ul > li:hover > a:after {
+    width: 100%;
+    left:0;
+}
+.sitemap .site_nav .sub ul li a:hover:after {
+    width: 100%;
+    left:0;
+}
+.sitemap .site_sns {
+    width: 7vw;
+    margin: 0 auto;
+    margin-top: 3vw;
+}
+.sitemap .site_sns ul {
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.sitemap .site_sns ul li {
+    width: 50px;
+    height:50px;
+    border-radius: 100%;
+    background-color:white;
+}
+.sitemap .site_sns ul li a i {
+    text-align: center;
+    display: block;
+    font-size: 1.2vw;
+    color: #ccc;
+    line-height: 50px;
+}
+/* 사이트맵 애니메이션 */
+.sitemap.active {
+    opacity: 1;
+    top: 0;
+}
+/* 노트북 버전 */
+@media screen and (max-width: 1600px) {
+
+}
+/* 태블릿 버전 */
+@media screen and (max-width: 1280px) {
+
+}
+/* 모바일 버전 */
+@media screen and (max-width: 480px){
+
+}
